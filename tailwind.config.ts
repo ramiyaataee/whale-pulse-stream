@@ -19,6 +19,7 @@ export default {
 		},
 		extend: {
 			colors: {
+				// Standard UI Colors
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
@@ -52,16 +53,60 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
+				
+				// Trading-Specific Colors
+				trading: {
+					background: 'hsl(var(--trading-background))',
+					foreground: 'hsl(var(--trading-foreground))',
+					card: 'hsl(var(--trading-card))',
+					'card-foreground': 'hsl(var(--trading-card-foreground))'
+				},
+				bull: {
+					DEFAULT: 'hsl(var(--bull))',
+					foreground: 'hsl(var(--bull-foreground))'
+				},
+				bear: {
+					DEFAULT: 'hsl(var(--bear))',
+					foreground: 'hsl(var(--bear-foreground))'
+				},
+				whale: {
+					DEFAULT: 'hsl(var(--whale))',
+					foreground: 'hsl(var(--whale-foreground))'
+				},
+				chart: {
+					grid: 'hsl(var(--chart-grid))',
+					support: 'hsl(var(--chart-support))',
+					resistance: 'hsl(var(--chart-resistance))',
+					ema50: 'hsl(var(--chart-ema50))',
+					ema100: 'hsl(var(--chart-ema100))',
+					ema200: 'hsl(var(--chart-ema200))'
+				},
+				confidence: {
+					high: 'hsl(var(--confidence-high))',
+					medium: 'hsl(var(--confidence-medium))',
+					low: 'hsl(var(--confidence-low))'
+				},
+				volume: {
+					high: 'hsl(var(--volume-high))',
+					medium: 'hsl(var(--volume-medium))',
+					low: 'hsl(var(--volume-low))'
 				}
+			},
+			backgroundImage: {
+				'gradient-bull': 'var(--gradient-bull)',
+				'gradient-bear': 'var(--gradient-bear)',
+				'gradient-whale': 'var(--gradient-whale)',
+				'gradient-chart': 'var(--gradient-chart)'
+			},
+			boxShadow: {
+				'trading': 'var(--shadow-trading)',
+				'glow': 'var(--shadow-glow)',
+				'bull': 'var(--shadow-bull)',
+				'bear': 'var(--shadow-bear)'
+			},
+			transitionTimingFunction: {
+				'smooth': 'var(--transition-smooth)',
+				'fast': 'var(--transition-fast)'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
