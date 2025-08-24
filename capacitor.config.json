@@ -1,0 +1,23 @@
+{
+  "appId": "app.lovable.ef9c92626cb442c08a1b0469613e7e4c",
+  "appName": "whale-pulse-stream",
+  "webDir": "dist",
+  "server": {
+    "url": "https://ef9c9262-6cb4-42c0-8a1b-0469613e7e4c.lovableproject.com?forceHideBadge=true",
+    "cleartext": true
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 2000,
+      "backgroundColor": "#0a0a0a",
+      "showSpinner": true,
+      "spinnerColor": "#3b82f6"
+    },
+    "StatusBar": {
+      "style": "dark"
+    },
+    "PushNotifications": {
+      "presentationOptions": ["badge", "sound", "alert"]
+    }
+  }
+}
