@@ -10,13 +10,15 @@ import { TechnicalIndicators } from "@/components/trading/TechnicalIndicators";
 import { SignalsPanel } from "@/components/trading/SignalsPanel";
 import NAS100Analysis from "@/components/trading/NAS100Analysis";
 import SettingsPanel from "@/components/trading/SettingsPanel";
-import { useMockData } from "@/hooks/useMockData";
+import { useRealMarketData } from "@/hooks/useRealMarketData";
 import { useTradingShortcuts } from "@/hooks/useKeyboardShortcuts";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { LoadingSpinner } from "@/components/ui/loading-spinner";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 import { useState } from "react";
 
 const Index = () => {
-  const { marketData, whaleTransactions, technicalData, signals, clearSignals } = useMockData();
+  const { marketData, whaleTransactions, technicalData, signals, clearSignals, isLoading, error } = useRealMarketData();
   const [activeTab, setActiveTab] = useState("overview");
 
   // Keyboard shortcuts
@@ -28,10 +30,33 @@ const Index = () => {
     refresh: () => window.location.reload(),
   });
 
+  if (isLoading) {
+    return (
+      <ErrorBoundary>
+        <DashboardLayout>
+          <div className="flex items-center justify-center min-h-[400px]">
+            <div className="text-center space-y-4">
+              <LoadingSpinner size="lg" />
+              <p className="text-muted-foreground">در حال بارگذاری داده‌های بازار...</p>
+              <p className="text-sm text-muted-foreground">
+                اتصال به Yahoo Finance، Alpha Vantage و Binance
+              </p>
+            </div>
+          </div>
+        </DashboardLayout>
+      </ErrorBoundary>
+    );
+  }
+
   return (
     <ErrorBoundary>
       <DashboardLayout>
         <div className="space-y-6">
+          {error && (
+            <Alert variant="destructive">
+              <AlertDescription>{error}</AlertDescription>
+            </Alert>
+          )}
           {/* Main Navigation Tabs */}
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
             <TabsList className="grid grid-cols-7 w-full max-w-3xl">
